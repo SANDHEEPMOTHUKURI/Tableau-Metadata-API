@@ -1,0 +1,31 @@
+# Query Workbook details
+query workbook{
+	workbooks (filter: {name: "World Indicators"}) {
+		id
+		name
+		projectName
+		owner {
+			id
+			name
+		}
+
+	}
+}
+
+
+# Query for Published Datasources
+query publisheddatasource_lineage {
+	publisheddatasource (filter: {name: "Superstore Datasource"}) {
+		id
+		name
+		projectName
+		owner {
+			id
+			name}
+		downstreamWorkbooks {
+			id
+			name
+			projectName
+		}
+	}
+}
